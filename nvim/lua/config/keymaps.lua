@@ -7,6 +7,9 @@ local opts = { noremap = true, silent = true }
 -- 🧭 Navigation & File Tree
 map("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })
 map("n", "<leader>fe", "<cmd>Neotree focus<CR>", { desc = "Focus file explorer" })
+vim.keymap.set("n", "<leader>e", function()
+  require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
+end, { desc = "Toggle Neo-tree (cwd)" })
 
 -- 🔍 Telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
@@ -171,7 +174,6 @@ map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 map("n", "<leader>tt", "<cmd>terminal<CR>", { desc = "Open terminal (new split)" })
 map("n", "<leader>tv", "<cmd>vsplit | terminal<CR>", { desc = "Open terminal (vertical)" })
 map("n", "<leader>th", "<cmd>split | terminal<CR>", { desc = "Open terminal (horizontal)" })
-
 
 -- Git
 vim.keymap.set("n", "<leader>gs", "<cmd>Neotree git_status toggle<CR>", { desc = "Neo-tree: Toggle Git Status" })

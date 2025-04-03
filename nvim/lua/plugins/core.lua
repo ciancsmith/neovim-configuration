@@ -27,12 +27,10 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
-    cmd = "Neotree",
     keys = {
       {
         "<leader>e",
         function()
-          -- Open Neo-tree rooted at cwd
           require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
         end,
         desc = "Toggle Neo-tree (cwd)",
@@ -40,7 +38,6 @@ return {
       {
         "<leader>fe",
         function()
-          -- Focus Neo-tree on current file
           require("neo-tree.command").execute({ action = "focus", dir = vim.fn.getcwd() })
         end,
         desc = "Focus Neo-tree",
@@ -49,7 +46,7 @@ return {
     opts = {
       enable_git_status = true,
       enable_diagnostics = true,
-      sources = { "filesystem", "buffers", "git_status" }, -- enable git view
+      sources = { "filesystem", "buffers", "git_status" },
       default_source = "filesystem",
       filesystem = {
         follow_current_file = {
@@ -62,12 +59,14 @@ return {
           hide_gitignored = false,
         },
         use_libuv_file_watcher = true,
-        hijack_netrw_behavior = "open_current",
+        hijack_netrw_behavior = "open_default",
       },
       window = {
+        position = "left",
         mappings = {
-          -- Show git status in left pane
-          ["gs"] = "show_git_status",
+          ["<cr>"] = "open",
+          ["<C-v>"] = "open_vsplit",
+          ["<C-x>"] = "open_split",
         },
       },
     },
