@@ -167,5 +167,11 @@ map("n", "<leader>sh", "<cmd>split<CR>", { desc = "Horizontal split" })
 map("i", "jj", "<Esc>", { desc = "Escape insert mode" })
 map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
+-- 🖥️ Terminal Shortcuts
+map("n", "<leader>tt", "<cmd>terminal<CR>", { desc = "Open terminal (new split)" })
+map("n", "<leader>tv", "<cmd>vsplit | terminal<CR>", { desc = "Open terminal (vertical)" })
+map("n", "<leader>th", "<cmd>split | terminal<CR>", { desc = "Open terminal (horizontal)" })
+
+
 -- Git
 vim.keymap.set("n", "<leader>gs", "<cmd>Neotree git_status toggle<CR>", { desc = "Neo-tree: Toggle Git Status" })
